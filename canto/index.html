@@ -466,6 +466,89 @@
 			text-align: right;
 			font-size: calc(var(--height) * 0.2);
 		}
+
+		.underlined {
+			color: #fff;
+			font-family: Arial;
+			font-weight: 500;
+			position: relative;
+			transition: .2s;
+			z-index: 2;
+			text-decoration: none;
+		}
+		.underline {
+			--widen: 0%;
+			--fix: 0%;
+			width: calc(100% + var(--widen));
+			transform: translateX(calc(-100% + var(--fix)));
+			height: 1px;
+			background: #fff;
+			position: absolute;
+			bottom: 0;
+			transition: .2s;
+			z-index: -1;
+		}
+		.underlined:hover {
+			color: #000;
+		}
+		.underlined:hover .underline {
+			height: 100%;
+		}
+		.underlined::selection {
+			background: #ffffff55;
+		}
+
+		#privacy {
+			position: fixed;
+			bottom: 3vh;
+			right: 3vh;
+
+			width: 25vh;
+			
+			background: rgba(245, 245, 255, 0.075);
+			border: .4vh solid rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(1vh);
+			border-radius: 1.5vh;
+			
+			z-index: 200;
+			opacity: 1;
+			transition: 1s;
+		}
+		#privacy p {
+			font-size: 2vh;
+			line-height: 2.2vh;
+			color: #fff;
+			font-family: Arial;
+			font-weight: 500;
+			
+			margin: 2vh;
+		}
+		#privacy p::selection {
+			background: #ffffff55;
+		}
+		#privacy button {
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translate(-48%, -48%);
+
+			width: 4vh;
+			height: 4vh;
+
+			background: rgba(245, 245, 255, 0.075);
+			border: .4vh solid rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(1vh);
+			border-radius: 50%;
+		}
+		#privacy button:hover {
+			background: rgba(245, 245, 255, 0.2);
+		}
+		#privacy button svg {
+			width: 100%;
+			height: 100%;
+			stroke: #fff;
+			fill: #fff;
+		}
 		@media only screen and (min-width: 100vh) {
 			#top {
 				--corner: 3vh;
@@ -537,6 +620,17 @@
 			}
 			#main h2 {
 				margin: -1.7vh 3vw 3vh 3vw;
+			}
+
+			#privacy {
+				bottom: 4vh;
+				right: 4vh;
+				width: 30vh;
+				border-width: .7vh;
+				border-radius: 2vh;
+			}
+			#privacy p {
+				margin: 2.5vh;
 			}
 		}
 		@media only screen and (max-width: 130vh) {
@@ -652,7 +746,22 @@
 		<a id="report" aria-label="Report" href="https://qwk.pythonanywhere.com/contact?ref=SQA-Report" target="_blank">Report</a>
 	</footer>
 
+	<div id="privacy">
+		<p>By using this site you agree to our<br><span><a class="underlined" href="https://tracker.qwk.zone/" target="_blank" aria-label="Privacy Policy">Privacy Policy<span class="underline" style="--widen: 3%; --fix: 1.7%;"></span></a></span></p>
+		<button onclick="closeprivacy()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+	</div>
+
 	<script>
+		const privacy = document.getElementById('privacy');
+
+		if (localStorage.getItem('hidePrivacyPopup')) { privacy.style.cssText = 'display: none;' }
+		function closeprivacy() {
+			localStorage.setItem('hidePrivacyPopup', 'true');
+
+			privacy.style.cssText = 'transform: translateX(200%); opacity: 0;';
+			setTimeout(() => privacy.style.cssText = 'display: none;', 1000);
+		}
+
 		var time = new Date("28 May, 2025 00:00:00").getTime() - new Date().getTime();
 		var days = Math.ceil(time / (1000 * 60 * 60 * 24));
 		if (time >= 0) {
