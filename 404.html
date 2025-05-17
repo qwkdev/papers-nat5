@@ -775,7 +775,7 @@
 		localStorage.setItem('cookie_prompt', reprompt);
 
 		const cookies = document.getElementById('cookie-modal-wrapper')
-		if (document.cookie.includes('cookie_consent=accepted') || parseInt(localStorage.getItem('cookie_prompt') || '0', 10) != 0) {
+		if (document.cookie.includes('cookie_consent=accepted') || reprompt != 0) {
 			cookies.style.cssText = 'display: none; opacity: 0;';
 		}
 		function opencookies() {
