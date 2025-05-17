@@ -508,57 +508,156 @@
 			background: #ffffff55;
 		}
 
-		#privacy {
+		#cookie-modal-wrapper {
+			width: 100vw;
+			height: 100vh;
+
+			position: fixed;
+			top: 0;
+			left: 0;
+
+			background: #00000077;
+			opacity: 1;
+			transition: opacity .5s;
+
+			z-index: 200;
+		}
+		#cookie-modal {
+			--gap: 4vw;
+			width: 80vw;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: rgba(245, 245, 255, 0.075);
+			border: .6vw solid rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(5vw);
+			border-radius: 1.5vw;
+		}
+		#cookie-modal #cookie-banner {
+			margin: var(--gap);
+			margin-bottom: 0;
+			position: relative;
+		}
+		#cookie-modal #cookie-banner svg {
+			width: 10vw;
+			height: 10vw;
+			stroke: #fff;
+			fill: #fff;
+		}
+		#cookie-modal #cookie-banner h1 {
+			position: absolute;
+			top: 2vw;
+			left: 12vw;
+			margin: 0;
+			font-size: 5vw;
+			line-height: 5vw;
+			height: 5vw;
+			font-weight: 600;
+			font-family: Arial;
+			color: #fff;
+		}
+		#cookie-modal #cookie-banner h1::selection {
+			background: #ffffff77;
+		}
+		#cookie-modal #cookie-main {
+			margin: var(--gap);
+			margin-bottom: calc(10vw + (var(--gap) * 2));
+			height: max-content;
+		}
+		#cookie-modal #cookie-main p {
+			margin: 0;
+			font-family: Arial;
+			font-weight: 500;
+			color: #fff;
+			font-size: 3vw;
+			line-height: 3.2vw;
+		}
+		#cookie-modal #cookie-main p::selection {
+			background: #ffffff77;
+		}
+		#cookie-modal #cookie-options {
+			position: absolute;
+			bottom: var(--gap);
+			left: var(--gap);
+			width: calc(100% - (var(--gap) * 2));
+			height: 10vw;
+			display: grid;
+			grid-template-columns: auto 40vw;
+			gap: var(--gap);
+		}
+		#cookie-modal #cookie-options #cookie-accept {
+			width: 100%;
+			font-family: Arial;
+			color: #fff;
+			font-size: 3vw;
+			background: rgba(245, 245, 255, 0.075);
+			border: .6vw solid rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(5vw);
+			border-radius: 1.5vw;
+			transition: .2s;
+		}
+		#cookie-modal #cookie-options #cookie-accept:hover {
+			transform: scale(1.02);
+			background: rgba(245, 245, 255, 0.1);
+		}
+		#cookie-modal #cookie-options div {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		#cookie-modal #cookie-options #cookie-reject {
+			width: max-content;
+			height: min-content;
+			padding: 1vw 2vw;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-family: Arial;
+			color: #fff;
+			font-size: 2vw;
+			background: transparent;
+			border: 1px solid #fff;
+			border-radius: 1.5vw;
+			outline: none;
+			text-decoration: underline;
+			transition: .2s;
+		}
+		#cookie-modal #cookie-options #cookie-reject:hover {
+			transform: translate(-50%, -50%) scale(1.03);
+		}
+		#cookie-edit {
 			position: fixed;
 			bottom: 3vh;
 			right: 3vh;
 
-			width: 25vh;
-			
-			background: rgba(245, 245, 255, 0.075);
-			border: .4vh solid rgba(255, 255, 255, 0.15);
-			backdrop-filter: blur(1vh);
-			border-radius: 1.5vh;
-			
-			z-index: 200;
-			opacity: 1;
-			transition: 1s;
-		}
-		#privacy p {
-			font-size: 2vh;
-			line-height: 2.2vh;
-			color: #fff;
-			font-family: Arial;
-			font-weight: 500;
-			
-			margin: 2vh;
-		}
-		#privacy p::selection {
-			background: #ffffff55;
-		}
-		#privacy button {
-			position: absolute;
-			top: 0;
-			left: 0;
-			transform: translate(-48%, -48%);
-
-			width: 4vh;
-			height: 4vh;
+			width: 5vh;
+			height: 5vh;
 
 			background: rgba(245, 245, 255, 0.075);
 			border: .4vh solid rgba(255, 255, 255, 0.15);
 			backdrop-filter: blur(1vh);
 			border-radius: 50%;
+			transition: .2s;
+
+			z-index: 199;
 		}
-		#privacy button:hover {
+		#cookie-edit:hover {
 			background: rgba(245, 245, 255, 0.2);
 		}
-		#privacy button svg {
-			width: 100%;
-			height: 100%;
+		#cookie-edit svg {
+			width: 70%;
+			height: 70%;
 			stroke: #fff;
 			fill: #fff;
+
+			position: absolute;
+			top: 49%;
+			left: 51%;
+			transform: translate(-50%, -50%);
 		}
+
 		@media only screen and (min-width: 100vh) {
 			#top {
 				--corner: 3vh;
@@ -632,15 +731,58 @@
 				margin: -1.7vh 3vw 3vh 3vw;
 			}
 
-			#privacy {
-				bottom: 4vh;
-				right: 4vh;
-				width: 30vh;
-				border-width: .7vh;
-				border-radius: 2vh;
+			#cookie-modal {
+				--gap: 4vh;
+				width: 80vh;
+				border-width: .6vh;
+				backdrop-filter: blur(5vh);
+				border-radius: 1.5vh;
 			}
-			#privacy p {
-				margin: 2.5vh;
+			#cookie-modal #cookie-banner svg {
+				width: 10vh;
+				height: 10vh;
+			}
+			#cookie-modal #cookie-banner h1 {
+				top: 2vh;
+				left: 12vh;
+				font-size: 5vh;
+				line-height: 5vh;
+				height: 5vh;
+			}
+			#cookie-modal #cookie-main {
+				margin-bottom: calc(10vh + (var(--gap) * 2));
+			}
+			#cookie-modal #cookie-main p {
+				font-size: 3vh;
+				line-height: 3.2vh;
+			}
+			#cookie-modal #cookie-options {
+				height: 10vh;
+				grid-template-columns: auto 40vh;
+			}
+			#cookie-modal #cookie-options #cookie-accept {
+				font-size: 3vh;
+				border: .6vh solid rgba(255, 255, 255, 0.15);
+				backdrop-filter: blur(5vh);
+				border-radius: 1.5vh;
+			}
+			#cookie-modal #cookie-options #cookie-reject {
+				padding: 1vh 2vh;
+				font-size: 2vh;
+				border-radius: 1.5vh;
+			}
+			#cookie-edit {
+				bottom: 3vh;
+				right: 3vh;
+
+				width: 7vh;
+				height: 7vh;
+
+				border: .4vh solid rgba(255, 255, 255, 0.15);
+				backdrop-filter: blur(1vh);
+			}
+			#cookie-edit svg {
+				left: 50%;
 			}
 		}
 		@media only screen and (max-width: 130vh) {
@@ -758,21 +900,53 @@
 		<a id="report" aria-label="Report" href="https://qwk.pythonanywhere.com/contact?ref=SQA-Report" target="_blank">Report</a>
 	</footer>
 
-	<div id="privacy">
-		<p>By using this site you agree to our<br><span><a class="underlined" href="https://tracker.qwk.zone/" target="_blank" aria-label="Privacy Policy">Privacy Policy<span class="underline" style="--widen: 3%; --fix: 1.7%;"></span></a></span></p>
-		<button onclick="closeprivacy()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+	<div id="cookie-modal-wrapper">
+		<modal id="cookie-modal">
+			<div id="cookie-banner">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M257.5 27.6c-.8-5.4-4.9-9.8-10.3-10.6c-22.1-3.1-44.6 .9-64.4 11.4l-74 39.5C89.1 78.4 73.2 94.9 63.4 115L26.7 190.6c-9.8 20.1-13 42.9-9.1 64.9l14.5 82.8c3.9 22.1 14.6 42.3 30.7 57.9l60.3 58.4c16.1 15.6 36.6 25.6 58.7 28.7l83 11.7c22.1 3.1 44.6-.9 64.4-11.4l74-39.5c19.7-10.5 35.6-27 45.4-47.2l36.7-75.5c9.8-20.1 13-42.9 9.1-64.9c-.9-5.3-5.3-9.3-10.6-10.1c-51.5-8.2-92.8-47.1-104.5-97.4c-1.8-7.6-8-13.4-15.7-14.6c-54.6-8.7-97.7-52-106.2-106.8zM208 144a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM144 336a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm224-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+				<h1>Cookies</h1>
+			</div>
+			<div id="cookie-main">
+				<p>
+					We use cookies to improve your experience.<br>
+					We use minimal, industry standard cookies for analytics and advertising.<br>
+					You can choose below to reject the use of optional cookies, but these cookies improve the quality of our analytics and the ads you see.<br>
+					<br>
+					For more details, see our <span><a class="underlined" href="https://sqa.my/privacy" target="_blank" aria-label="Privacy Policy">Privacy Policy<span class="underline" style="--widen: 3%; --fix: 1.7%;"></span></a></span>
+				</p>
+			</div>
+			<div id="cookie-options">
+				<div><button id="cookie-reject" onclick="closecookies(false)" aria-label="Reject Non-Essential Cookies">Reject Non-Essential</button></div>
+				<button id="cookie-accept" onclick="closecookies(true)" aria-label="Accept All Cookies">Accept All</button>
+			</div>
+		</modal>
 	</div>
+	<button id="cookie-edit" onclick="opencookies()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M257.5 27.6c-.8-5.4-4.9-9.8-10.3-10.6c-22.1-3.1-44.6 .9-64.4 11.4l-74 39.5C89.1 78.4 73.2 94.9 63.4 115L26.7 190.6c-9.8 20.1-13 42.9-9.1 64.9l14.5 82.8c3.9 22.1 14.6 42.3 30.7 57.9l60.3 58.4c16.1 15.6 36.6 25.6 58.7 28.7l83 11.7c22.1 3.1 44.6-.9 64.4-11.4l74-39.5c19.7-10.5 35.6-27 45.4-47.2l36.7-75.5c9.8-20.1 13-42.9 9.1-64.9c-.9-5.3-5.3-9.3-10.6-10.1c-51.5-8.2-92.8-47.1-104.5-97.4c-1.8-7.6-8-13.4-15.7-14.6c-54.6-8.7-97.7-52-106.2-106.8zM208 144a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM144 336a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm224-64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></button>
 
 	<script>
-		const privacy = document.getElementById('privacy');
-
-		if (localStorage.getItem('hidePrivacyPopup')) { privacy.style.cssText = 'display: none;' }
-		function closeprivacy() {
-			localStorage.setItem('hidePrivacyPopup', 'true');
-
-			privacy.style.cssText = 'transform: translateX(200%); opacity: 0;';
-			setTimeout(() => privacy.style.cssText = 'display: none;', 1000);
+		const cookies = document.getElementById('cookie-modal-wrapper')
+		if (document.cookie.includes('cookie_consent=accepted')) {
+			cookies.style.cssText = 'display: none; opacity: 0;';
 		}
+		function opencookies() {
+			cookies.style.cssText = 'opacity: 0;';
+			setTimeout(() => cookies.style.cssText = '', 100);
+		}
+		function closecookies(accept, skip=false) {
+			if (!skip) {
+				const d = new Date();
+				d.setTime(d.getTime() + (365*24*60*60*1000));
+				document.cookie = `cookie_consent=${accept ? 'accepted' : 'rejected'}; expires=${d.toUTCString()}; path=/; domain=.sqa.my; SameSite=Lax`;
+			}
+
+			cookies.style.cssText = 'opacity: 0; pointer-events: none;';
+			setTimeout(() => cookies.style.cssText = 'display: none; opacity: 0;', 500);
+		}
+		cookies.addEventListener('click', e => {
+			if (e.target == cookies && document.cookie.includes('cookie_consent')) {
+				closecookies(null, true);
+			}
+		})
 
 		var time = new Date("28 Apr, 2025 00:00:00").getTime() - new Date().getTime();
 		var days = Math.ceil(time / (1000 * 60 * 60 * 24));
