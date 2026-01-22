@@ -6,33 +6,33 @@
 	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon/bio.svg" type="image/svg+xml">
 	
 	<meta charset="UTF-8">
-	<meta name="description" content="Archive of N5 Biology Reports past papers, marking schemes and resources.">
-	<meta name="keywords" content="SQA, past papers, marking schemes, exams, Course Reports, Reports, Past Reports, national 5, nat 5, bio, Biology, Biology, resources, education, past papers archive">
+	<meta name="description" content="Archive of N5 Biology past papers, marking schemes and resources.">
+	<meta name="keywords" content="SQA, past papers, marking schemes, exams, national 5, nat 5, bio, Biology, Biology, resources, education, past papers archive">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#141415">
 	<meta name="color-scheme" content="dark light">
 	<meta name="author" content="qwk">
-	<meta property="og:title" content="N5 Biology Course Reports | SQA.MY">
-	<meta property="og:description" content="Archive of N5 Biology Reports past papers, marking schemes and resources. Click here for access, completely and always free">
+	<meta property="og:title" content="N5 Biology Past Papers | SQA.MY">
+	<meta property="og:description" content="Archive of N5 Biology past papers, marking schemes and resources. Click here for access, completely and always free">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="SQA.MY">
 	<meta property="og:locale" content="en_GB">
 
-	<meta property="og:image" content="https://og.tailgraph.com/og?fontFamily=Montserrat&title=N5 Biology Reports Past Papers&titleTailwind=font-bold%20text-6xl%20text-white&text=Past%20papers%20from%20the%20largest%20archive%20of%20SQA%20past%20papers&textTailwind=text-2xl%20mt-4%20bg-blueGray-300%20text-gray-300&logoUrl=&logoTailwind=h-8&bgTailwind=bg-black&footer=sqa.my&footerTailwind=text-blue-400%20text-3xl&t=1744575448853&refresh=1">
-	<meta property="og:image:alt" content="N5 Biology Reports Past Papers">
+	<meta property="og:image" content="https://og.tailgraph.com/og?fontFamily=Montserrat&title=N5 Biology Past Papers&titleTailwind=font-bold%20text-6xl%20text-white&text=Past%20papers%20from%20the%20largest%20archive%20of%20SQA%20past%20papers&textTailwind=text-2xl%20mt-4%20bg-blueGray-300%20text-gray-300&logoUrl=&logoTailwind=h-8&bgTailwind=bg-black&footer=sqa.my&footerTailwind=text-blue-400%20text-3xl&t=1744575448853&refresh=1">
+	<meta property="og:image:alt" content="N5 Biology Past Papers">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="SQA.MY">
 	<meta name="twitter:site" content="@qwkdev">
-	<meta name="twitter:description" content="Archive of N5 Biology Reports past papers, marking schemes and resources. Click here for access, completely and always free">
-	<meta property="og:image" content="https://og.tailgraph.com/og?fontFamily=Montserrat&title=N5 Biology Reports Past Papers&titleTailwind=font-bold%20text-6xl%20text-white&text=Past%20papers%20from%20the%20largest%20archive%20of%20SQA%20past%20papers&textTailwind=text-2xl%20mt-4%20bg-blueGray-300%20text-gray-300&logoUrl=&logoTailwind=h-8&bgTailwind=bg-black&footer=sqa.my&footerTailwind=text-blue-400%20text-3xl&t=1744575448853&refresh=1">
-	<meta name="twitter:image:alt" content="N5 Biology Reports Past Papers">
+	<meta name="twitter:description" content="Archive of N5 Biology past papers, marking schemes and resources. Click here for access, completely and always free">
+	<meta property="og:image" content="https://og.tailgraph.com/og?fontFamily=Montserrat&title=N5 Biology Past Papers&titleTailwind=font-bold%20text-6xl%20text-white&text=Past%20papers%20from%20the%20largest%20archive%20of%20SQA%20past%20papers&textTailwind=text-2xl%20mt-4%20bg-blueGray-300%20text-gray-300&logoUrl=&logoTailwind=h-8&bgTailwind=bg-black&footer=sqa.my&footerTailwind=text-blue-400%20text-3xl&t=1744575448853&refresh=1">
+	<meta name="twitter:image:alt" content="N5 Biology Past Papers">
 
 	<meta name="google-adsense-account" content="ca-pub-5151386677524536">
 
-	<title>N5 Biology Course Reports | SQA.MY</title>
+	<title>N5 Biology Past Papers | SQA.MY</title>
 	<style>
 :root {
 	--bg: #141415;
@@ -531,88 +531,157 @@ button.qchat-toggle {
 	display: none;
 }
 
-		#fade-wrap {
+		#topics {
+			column-count: 2;
+			gap: var(--side);
+			margin: 0 var(--side);
 			margin-top: calc(2.7 * var(--u));
-			position: relative;
-			width: 100vw;
 		}
-		#fade-wrap::before, #fade-wrap::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			width: var(--side);
-			height: 100%;
-			z-index: 10;
+		
+		#main .topic {
+			margin-bottom: var(--side);
+			width: 100%;
+			border: calc(.3 * var(--u)) solid var(--glass-border);
+			border-radius: calc(2 * var(--u));
+			background: transparent;
+			padding: 0;
 		}
-		#fade-wrap::before {
-			left: 0;
-			background: linear-gradient(to right, #141415ff, #14141500);
-		}
-		#fade-wrap::after {
-			right: 0;
-			background: linear-gradient(to left, #141415ff, #14141500);
-		}
-		#table-wrap {
-			width: 100vw;
-			margin: 0;
-			padding-bottom: calc(2 * var(--u));
-			position: relative;
-			height: min-content;
-			overflow-x: scroll;
-		}
-		#table-wrap::-webkit-scrollbar {
+		#main .topic table {
 			display: none;
 		}
-		#main table {
+		#main .topic:hover > h2, #main .topic:hover > p {
+			background: var(--glass-bg-hover);
+		}
+		#main .topic h2, #view-topic h2 {
+			width: 100%;
+			box-sizing: border-box;
+			font-size: calc(4.2 * var(--u));
+			text-decoration: underline;
+			text-align: center;
+			margin: 0;
+			padding: calc(1.2 * var(--u)) calc(.8 * var(--u));
+			background: var(--glass-bg);
+			border: none;
+			border-bottom: calc(.3 * var(--u)) solid var(--glass-border);
+			border-radius: calc(1.7 * var(--u)) calc(1.7 * var(--u)) 0 0;
+			font-weight: 500;
+			transition: .2s;
+		}
+		#main .topic p {
+			background: var(--glass-bg);
+			margin: 0;
+			text-align: left;
+			padding: calc(1.5 * var(--u));
+			font-size: calc(2.4 * var(--u));
+			border-radius: 0 0 calc(1.7 * var(--u)) calc(1.7 * var(--u));
+			transition: .2s;
+		}
+
+		#topic-modal {
+			position: fixed;
+			top: 0;
+			left: 0;
+			max-width: 100%;
+			max-height: 100%;
+			width: 100%;
+			height: 100%;
+			background: #0007;
+			border: none;
+			padding: none;
+			margin: none;
+			box-sizing: border-box;
+		}
+		#view-topic {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			width: min-content;
+			max-width: 70vw;
+			max-height: 82vh;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+
+			border: calc(.3 * var(--u)) solid var(--glass-border);
+			border-radius: calc(2 * var(--u));
+			background: var(--bg);
+		}
+		#table-wrapper {
+			display: block;
+			width: 100%;
+			height: 100%;
+			/* flex-grow: 1; */
+			overflow: scroll;
+
+			background: var(--glass-bg);
+		}
+		#view-topic table {
 			--corner: calc(2 * var(--u));
-			margin: 0 var(--side);
+			display: block;
 			width: max-content;
+			height: max-content;
+
 			border-spacing: 0;
 			color: #fff;
+			table-layout: auto;
 		}
-		#main table td::selection, #main table th::selection, #main h2::selection {
+		#view-topic table td::selection, #main h2::selection, #view-topic table p::selection {
 			background: #ffffff55;
 		}
-		#main table a::selection, #main h2 a::selection {
+		#view-topic table a::selection, #main h2 a::selection {
 			background: #0088ff55;
 		}
-		#main table a, #main h2 a {
+		#view-topic table a, #main h2 a {
 			color: #0088ff;
 			transition: .1s;
 		}
-		#main table a:hover, #main h2 a:hover {
+		#view-topic table a:hover, #main h2 a:hover {
 			color: #00aaff;
 		}
-		#main table th {
-			border: calc(.2 * var(--u)) solid #5a5a5b;
-			font-weight: 700;
-		}
-		#main table td {
-			border: calc(.2 * var(--u)) solid #2a2a2b;
+		#view-topic table td {
+			border: calc(.3 * var(--u)) solid var(--glass-border);
 			font-weight: 500;
 			border-top: none;
 		}
-		#main table tr:first-child th:first-child {
-			border-top-left-radius: var(--corner);
+		#view-topic table td:first-child {
+			border-left: none;
 		}
-		#main table tr:first-child th:last-child {
-			border-top-right-radius: var(--corner);
+		#view-topic table td:last-child {
+			border-right: none;
+			width: 0;
 		}
-		#main table tr:last-child td:first-child {
-			border-bottom-left-radius: var(--corner);
+		#view-topic table tr td:not(:last-child) {
+			border-right: none;
 		}
-		#main table tr:last-child td:last-child {
-			border-bottom-right-radius: var(--corner);
+		#view-topic table tr:last-child td {
+			border-bottom: none;
 		}
-		#main table tr {
+		#view-topic table tr {
 			font-family: Arial;
 			font-size: calc(4.2 * var(--u));
 		}
-		#main table tr th, #main table tr td {
+		#view-topic table tr td {
 			padding: calc(.8 * var(--u)) calc(1.8 * var(--u));
 		}
-		#main table tr th:not(:last-child), #main table tr td:not(:last-child) {
-			border-right: none;
+		#view-topic table p {
+			font-family: Arial;
+			font-size: calc(4.2 * var(--u));
+			font-weight: 500;
+			color: #fff;
+			margin: 0;
+		}
+		
+		@media only screen and (min-aspect-ratio: 1.7/1) {
+			#topics {
+				column-count: 3;
+			}
+		}
+		@media only screen and (max-aspect-ratio: 1/1.5) {
+			#topics {
+				column-count: 1;
+			}
 		}
 
 @media only screen and (min-aspect-ratio: 1/1) {
@@ -664,7 +733,7 @@ button.qchat-toggle {
 </header>
 
 	<section id="main" aria-label="Page Content">
-		<h1 id="name" aria-label="Subject Name">N5 Biology Reports</h1>
+		<h1 id="name" aria-label="Subject Name">N5 Biology</h1>
 		<p>
 			Archive of SQA past papers and resources<br>
 			The provided files are exclusively for supporting the studies of SQA qualifications.<br>
@@ -675,7 +744,7 @@ button.qchat-toggle {
 			<span id="visits">Loading visits...</span>
 		</p>
 
-		<h2><a href="/bio">Back to Papers</a>, <a href="/bio/questions">Sorted Questions</a>, <a href="/bio/grades">Grade Boundaries</a></h2>
+		<h2><a href="/bio">Back to Papers</a>, <a href="/bio/grades">Grade Boundaries</a>, <a href="/bio/reports">Course Reports</a></h2>
 
 		<div id="contributors" hidden>
 			<div>
@@ -684,11 +753,13 @@ button.qchat-toggle {
 
 		</div>
 
-		<div id="fade-wrap"><main id="table-wrap" aria-label="Past Paper Section">
-			<table aria-label="Past Papers">
-<thead><tr><th>Year</th><th>Report</th></tr></thead><tbody><tr><td>2025</td><td><a href="/bio/reports/N5_Biology_2025_Course_Report.pdf" target="_blank">Report</a></td></tr><tr><td>2024</td><td><a href="/bio/reports/N5_Biology_2024_Course_Report.pdf" target="_blank">Report</a></td></tr><tr><td>2023</td><td><a href="/bio/reports/N5_Biology_2023_Course_Report.pdf" target="_blank">Report</a></td></tr><tr><td>2022</td><td><a href="/bio/reports/N5_Biology_2022_Course_Report.pdf" target="_blank">Report</a></td></tr></tbody>
-			</table>
-		</main></div>
+		<div id="topics">
+
+		</div>
+
+		<dialog id="topic-modal">
+			<div id="view-topic"></div>
+		</dialog>
 	</section>
 	
 <footer id="footer">
@@ -711,17 +782,38 @@ button.qchat-toggle {
 </div>
 
 	<script>
+		const topicModal = document.getElementById('topic-modal');
+		topicModal.addEventListener('click', e => {
+			if (e.target === topicModal) {
+				topicModal.close();
+			}
+		});
+
+		const viewTopic = document.getElementById('view-topic');
+		function show(e) {
+			viewTopic.innerHTML = '';
+			viewTopic.appendChild(e.querySelector('h2').cloneNode(true));
+
+			const tableWrapper = document.createElement('div');
+			tableWrapper.id = 'table-wrapper';
+			
+			tableWrapper.appendChild(e.querySelector('table').cloneNode(true));
+			viewTopic.appendChild(tableWrapper);
+
+			topicModal.showModal();
+		}
+
 		if ('28 Apr, 2026') {
 			var time = new Date("28 Apr, 2026 00:00:00").getTime() - new Date().getTime();
 			var days = Math.ceil(time / (1000 * 60 * 60 * 24));
 			if (time >= 0) {
 				if (days == 1) {
-					document.getElementById("name").innerHTML = `N5 Biology Reports - ${days} day`;
+					document.getElementById("name").innerHTML = `N5 Biology - ${days} day`;
 				} else {
-					document.getElementById("name").innerHTML = `N5 Biology Reports - ${days} days`;
+					document.getElementById("name").innerHTML = `N5 Biology - ${days} days`;
 				}
 			} else if (days == 0) {
-				document.getElementById("name").innerHTML = `N5 Biology Reports - Today`;
+				document.getElementById("name").innerHTML = `N5 Biology - Today`;
 			}
 		}
 	</script>
@@ -768,7 +860,7 @@ button.qchat-toggle {
 		return session;
 	}
 
-	fetch('https://qtrack.pythonanywhere.com/visit/sqa-n5-bio-reports', {
+	fetch('https://qtrack.pythonanywhere.com/visit/sqa-n5-bio-questions', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
