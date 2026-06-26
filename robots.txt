@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://nat5.sqa.my/sitemap.xml
+Sitemap: https://nat5.scotpapers.com/sitemap.xml
